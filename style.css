@@ -731,3 +731,120 @@
             width: 22px;
             height: 22px;
         }
+
+        /* DON */
+        .btn-light {
+            background: white;
+            color: #003d82;
+        }
+
+        .btn-light:hover {
+            background: #e8f0fa;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.nav-cta {
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 6px 16px;
+        }
+
+        .nav-links a.nav-cta:hover,
+        .nav-links a.nav-cta.active {
+            background: #f9c74f;
+            border-color: #f9c74f;
+            color: #003d82;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #003d82;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .card-link:hover {
+            color: #1a5fa0;
+        }
+
+        .don-section {
+            background: #eef4fb;
+        }
+
+        .don-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .don-intro {
+            text-align: center;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .don-method {
+            background: white;
+            border-radius: 10px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .don-method-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .don-badge {
+            background: #003d82;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 14px;
+        }
+
+        .don-method-title {
+            color: #003d82;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .don-number-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .don-number {
+            color: #003d82;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 4px 0 16px;
+        }
+
+        .don-steps {
+            text-align: left;
+            margin: 25px auto;
+            padding-left: 20px;
+            max-width: 440px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .don-wa {
+            display: block;
+            border: 2px solid #e0ac2b;
+        }
+
+        @media (max-width: 768px) {
+            .don-method { padding: 25px 20px; }
+            .don-number { font-size: 26px; }
+        }

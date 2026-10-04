@@ -32,3 +32,18 @@ const observer = new IntersectionObserver(entries => {
 }, { rootMargin: '-40% 0px -55% 0px' });
 document.querySelectorAll('main section[id], section[id]').forEach(s => observer.observe(s));
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Copier le numero de don
+const copyBtn = document.getElementById('don-copy');
+if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+        const number = document.getElementById('don-number').textContent.replace(/\s/g, '');
+        try {
+            await navigator.clipboard.writeText(number);
+            copyBtn.textContent = 'Numéro copié';
+        } catch (e) {
+            copyBtn.textContent = number;
+        }
+        setTimeout(() => { copyBtn.textContent = 'Copier le numéro'; }, 2500);
+    });
+}
