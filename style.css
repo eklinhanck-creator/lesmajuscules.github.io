@@ -404,7 +404,6 @@
         }
         
         .pillar-icon {
-            font-size: 40px;
             margin-bottom: 15px;
         }
         
@@ -454,7 +453,6 @@
         }
         
         .help-card-icon {
-            font-size: 48px;
             margin-bottom: 15px;
         }
         
@@ -578,7 +576,6 @@
         }
         
         .contact-icon {
-            font-size: 28px;
             color: #003d82;
             flex-shrink: 0;
         }
@@ -619,7 +616,6 @@
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 20px;
         }
         
         .social-links a:hover {
@@ -654,3 +650,71 @@
             padding: 0 20px;
         }
     
+        /* ICONES */
+        .ico {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .pillar-icon,
+        .help-card-icon,
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f0fa;
+            color: #003d82;
+            border-radius: 14px;
+        }
+
+        .pillar-icon,
+        .help-card-icon {
+            width: 64px;
+            height: 64px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pillar-icon .ico,
+        .help-card-icon .ico {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+        }
+
+        .with-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3.with-icon .ico {
+            color: #f9a825;
+            stroke: #003d82;
+        }
+
+        .tick {
+            display: inline-block;
+            vertical-align: -3px;
+            margin-right: 6px;
+            width: 18px;
+            height: 18px;
+            color: #2e8b57;
+            stroke-width: 2.5;
+        }
+
+        .social-links .ico {
+            width: 22px;
+            height: 22px;
+        }
