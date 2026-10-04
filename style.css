@@ -233,12 +233,24 @@
         .btn-secondary {
             background: transparent;
             color: white;
-            border: 2px solid #f9c74f;
+            border: 2px solid white;
         }
         
         .btn-secondary:hover {
-            background: #f9c74f;
+            background: white;
             color: #003d82;
+        }
+
+        .btn-dark {
+            background: #003d82;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .btn-dark:hover {
+            background: #1a5fa0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 61, 130, 0.3);
         }
         
         @media (max-width: 768px) {
@@ -276,7 +288,7 @@
             background: #f8f9fa;
             padding: 30px;
             border-radius: 5px;
-            border-top: 4px solid #f9c74f;
+            border-top: 4px solid #003d82;
         }
         
         .actualite-date {
@@ -535,10 +547,10 @@
         
         .form-submit {
             width: 100%;
-            background: linear-gradient(135deg, #003d82 0%, #1a5fa0 100%);
-            color: white;
+            background: #f9c74f;
+            color: #003d82;
             padding: 14px;
-            border: none;
+            border: 2px solid #e0ac2b;
             border-radius: 5px;
             font-weight: 600;
             font-size: 16px;
@@ -548,8 +560,9 @@
         }
         
         .form-submit:hover {
+            background: #fdd962;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 61, 130, 0.3);
+            box-shadow: 0 4px 12px rgba(249, 199, 79, 0.4);
         }
         
         /* CONTACT */
@@ -619,8 +632,8 @@
         }
         
         .social-links a:hover {
-            background: #f9c74f;
-            color: #003d82;
+            background: #1a5fa0;
+            color: white;
             transform: translateY(-3px);
         }
         
