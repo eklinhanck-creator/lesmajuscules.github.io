@@ -42,7 +42,7 @@
 }
     </script>
     <title>Les M@JUSCULES - Inclusion Numérique au Togo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261005">
 </head>
 <body>
     <a href="#about" class="skip-link">Aller au contenu</a>
@@ -79,6 +79,36 @@
         </div>
     </section>
     
+    <!-- CALENDRIER -->
+    <section id="calendrier" class="calendrier">
+        <h2 class="section-title">Prochain Contrôle de Vie</h2>
+        <div class="cal-card" id="cal" data-start="2026-10-31" data-end="2026-12-15">
+            <p class="cal-intro">Retraités et pensionnaires de la CNSS : le contrôle de vie concerne le versement de votre pension. Voici la prochaine période.</p>
+            <div class="cal-dates">
+                <div class="cal-date">
+                    <span class="cal-label">Début</span>
+                    <span class="cal-day">31</span>
+                    <span class="cal-month">octobre 2026</span>
+                    <span class="cal-weekday">samedi</span>
+                </div>
+                <div class="cal-arrow" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg><span>46 jours</span></div>
+                <div class="cal-date">
+                    <span class="cal-label">Fin</span>
+                    <span class="cal-day">15</span>
+                    <span class="cal-month">décembre 2026</span>
+                    <span class="cal-weekday">mardi</span>
+                </div>
+            </div>
+            <p class="cal-status" id="cal-status" role="status"></p>
+            <div class="cal-bar" aria-hidden="true"><div class="cal-bar-fill" id="cal-bar-fill"></div></div>
+            <div class="cal-actions">
+                <a class="btn btn-dark" id="cal-ics" href="#calendrier">Ajouter à mon agenda</a>
+                <a class="btn btn-primary" href="https://wa.me/22898561901?text=Bonjour%2C%20j%27aimerais%20%C3%AAtre%20accompagn%C3%A9%20pour%20mon%20contr%C3%B4le%20de%20vie." target="_blank" rel="noopener">Besoin d'aide ? Écrivez-nous</a>
+            </div>
+            <p class="cal-note">Dates à confirmer auprès de la CNSS avant de vous déplacer.</p>
+        </div>
+    </section>
+
     <!-- ABOUT -->
     <section id="about" class="about">
         <h2 class="section-title">À Propos de Les M@JUSCULES</h2>
@@ -349,6 +379,6 @@
         <p style="margin-top: 10px; opacity: 0.8;">Un monde numérique inclusif pour tous !</p>
     </footer>
     
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20261005" defer></script>
 </body>
 </html>

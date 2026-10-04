@@ -11,7 +11,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(fals
 
 // Defilement doux (desactive si l'utilisateur reduit les animations)
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(#cal-ics)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (!target) return;
@@ -78,4 +78,49 @@ if (form) {
             submitBtn.textContent = label;
         }
     });
+}
+
+// Calendrier du controle de vie
+const cal = document.getElementById('cal');
+if (cal) {
+    const toDate = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+    const DAY = 86400000;
+    const start = toDate(cal.dataset.start);
+    const end = toDate(cal.dataset.end);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const plural = (n, w) => n + ' ' + w + (n > 1 ? 's' : '');
+    const status = document.getElementById('cal-status');
+    const fill = document.getElementById('cal-bar-fill');
+    const total = Math.round((end - start) / DAY) + 1;
+
+    if (today < start) {
+        status.textContent = 'Début dans ' + plural(Math.round((start - today) / DAY), 'jour');
+        fill.style.width = '0%';
+    } else if (today <= end) {
+        const left = Math.round((end - today) / DAY);
+        status.textContent = left === 0 ? 'Dernier jour du contrôle' : 'En cours : ' + plural(left, 'jour') + ' restant' + (left > 1 ? 's' : '');
+        fill.style.width = Math.min(100, Math.round(((today - start) / DAY + 1) / total * 100)) + '%';
+    } else {
+        status.textContent = 'Cette période de contrôle est terminée';
+        fill.style.width = '100%';
+    }
+
+    // Fichier .ics (Apple, Outlook, Google via import)
+    const ymd = d => d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
+    const endExclusive = new Date(end.getTime() + DAY);
+    const ics = [
+        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Les M@JUSCULES//FR', 'BEGIN:VEVENT',
+        'UID:controle-de-vie-' + ymd(start) + '@lesmajuscules.org',
+        'DTSTAMP:' + ymd(today) + 'T000000Z',
+        'DTSTART;VALUE=DATE:' + ymd(start),
+        'DTEND;VALUE=DATE:' + ymd(endExclusive),
+        'SUMMARY:Controle de vie CNSS',
+        'DESCRIPTION:Periode du controle de vie. Dates a confirmer aupres de la CNSS.',
+        'BEGIN:VALARM', 'TRIGGER:-P7D', 'ACTION:DISPLAY', 'DESCRIPTION:Controle de vie dans 7 jours', 'END:VALARM',
+        'END:VEVENT', 'END:VCALENDAR'
+    ].join('\r\n');
+    const link = document.getElementById('cal-ics');
+    link.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+    link.download = 'controle-de-vie-2026.ics';
 }
