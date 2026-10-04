@@ -47,3 +47,35 @@ if (copyBtn) {
         setTimeout(() => { copyBtn.textContent = 'Copier le numéro'; }, 2500);
     });
 }
+
+// Formulaire benevoles : envoi sans quitter la page
+const form = document.getElementById('volunteer-form');
+if (form) {
+    const submitBtn = form.querySelector('.form-submit');
+    const errorBox = document.getElementById('form-error');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        errorBox.hidden = true;
+        submitBtn.disabled = true;
+        const label = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi en cours...';
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' }
+            });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            form.hidden = true;
+            success.hidden = false;
+            success.focus();
+            form.reset();
+        } catch (err) {
+            errorBox.innerHTML = "L'envoi a échoué. Réessayez, ou écrivez-nous à <a href=\"mailto:contact@lesmajuscules.org\">contact@lesmajuscules.org</a> ou sur <a href=\"https://wa.me/22898561901\">WhatsApp</a>.";
+            errorBox.hidden = false;
+            submitBtn.disabled = false;
+            submitBtn.textContent = label;
+        }
+    });
+}

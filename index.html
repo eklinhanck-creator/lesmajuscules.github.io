@@ -6,6 +6,41 @@
     <meta name="description" content="Les M@JUSCULES, association togolaise pour l'inclusion numérique : accès à internet, outils et compétences numériques pour les personnes en situation de précarité.">
     <meta name="theme-color" content="#003d82">
     <link rel="icon" href="logo.png" type="image/png">
+    <link rel="canonical" href="https://lesmajuscules.org/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Les M@JUSCULES">
+    <meta property="og:title" content="Les M@JUSCULES - Inclusion Numérique au Togo">
+    <meta property="og:description" content="Les M@JUSCULES, association togolaise pour l'inclusion numérique : accès à internet, outils et compétences numériques pour les personnes en situation de précarité.">
+    <meta property="og:url" content="https://lesmajuscules.org/">
+    <meta property="og:image" content="https://lesmajuscules.org/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo Les M@JUSCULES, association pour l'inclusion numérique au Togo">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Les M@JUSCULES",
+  "url": "https://lesmajuscules.org/",
+  "logo": "https://lesmajuscules.org/logo.png",
+  "description": "Association apolitique, laïque et à but non lucratif dédiée à la lutte contre l'exclusion numérique au Togo.",
+  "foundingDate": "2023",
+  "email": "contact@lesmajuscules.org",
+  "telephone": "+22898561901",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "15 Rue Ouma, Hanoukopé",
+    "addressLocality": "Lomé",
+    "addressCountry": "TG"
+  },
+  "sameAs": [
+    "https://facebook.com/lesmajuscules",
+    "https://instagram.com/lesmajuscules"
+  ]
+}
+    </script>
     <title>Les M@JUSCULES - Inclusion Numérique au Togo</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -177,7 +212,8 @@
             <h3>Inscription Bénévoles</h3>
             <p>Vous avez envie de contribuer à l'inclusion numérique au Togo ? Inscrivez-vous et nous vous contacterons rapidement.</p>
             
-            <form action="https://formspree.io/f/xeaorkel" method="POST">
+            <form id="volunteer-form" action="https://formspree.io/f/xeaorkel" method="POST">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field">
                 <div class="form-group">
                     <label for="name">Nom Complet *</label>
                     <input type="text" id="name" name="name" required>
@@ -221,9 +257,15 @@
                     <textarea id="motivation" name="motivation" placeholder="Parlez-nous de vos motivations..."></textarea>
                 </div>
                 
+                <p class="form-status form-error" id="form-error" role="alert" hidden></p>
                 <button type="submit" class="form-submit">Envoyer Ma Candidature</button>
                 <p style="font-size: 12px; color: #999; margin-top: 15px; text-align: center;">Nous vous recontacterons par email ou WhatsApp dans les 48h</p>
             </form>
+            <div class="form-success" id="form-success" role="status" tabindex="-1" hidden>
+                <h3>Merci pour votre candidature !</h3>
+                <p>Nous l'avons bien reçue et nous vous recontacterons par email ou WhatsApp dans les 48h.</p>
+                <a class="btn btn-dark" href="#don">Soutenir l'association</a>
+            </div>
         </div>
     </section>
     
