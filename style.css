@@ -655,6 +655,16 @@
         footer p {
             margin: 0;
         }
+
+        .footer-legal {
+            max-width: 720px;
+            margin: 20px auto 0 !important;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
         
         /* UTILITIES */
         .container {
@@ -1097,4 +1107,13 @@
             .cal-arrow { flex-direction: row; }
             .cal-arrow .ico { transform: rotate(90deg); width: 26px; height: 26px; }
             .cal-actions .btn { width: 100%; text-align: center; }
+        }
+
+        .about-legal {
+            font-size: 14px;
+            color: #003d82;
+            background: #e8f0fa;
+            border-left: 3px solid #003d82;
+            border-radius: 4px;
+            padding: 8px 12px;
         }
