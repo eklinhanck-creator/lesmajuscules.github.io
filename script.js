@@ -124,3 +124,14 @@ if (cal) {
     link.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
     link.download = 'controle-de-vie-2026.ics';
 }
+
+// Bande d'annonce : pause du defilement
+const tickerPause = document.getElementById('ticker-pause');
+if (tickerPause) {
+    tickerPause.addEventListener('click', () => {
+        const paused = tickerPause.closest('.ticker').classList.toggle('paused');
+        tickerPause.setAttribute('aria-pressed', paused);
+        tickerPause.setAttribute('aria-label', paused ? 'Reprendre le défilement' : 'Mettre en pause le défilement');
+        tickerPause.innerHTML = paused ? '&#9654;' : '&#10074;&#10074;';
+    });
+}
