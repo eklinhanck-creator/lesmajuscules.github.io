@@ -15,7 +15,7 @@
             --blue: #003d82;
             --blue-light: #1a5fa0;
             --yellow: #f9c74f;
-            --header-h: 76px;
+            --header-h: 118px;
         }
 
         html {
@@ -140,7 +140,7 @@
         }
 
         @media (max-width: 768px) {
-            :root { --header-h: 68px; }
+            :root { --header-h: 106px; }
 
             .logo img { height: 48px; width: 48px; }
             .logo-title { font-size: 16px; }
@@ -1116,4 +1116,125 @@
             border-left: 3px solid #003d82;
             border-radius: 4px;
             padding: 8px 12px;
+        }
+
+        /* BANDE D'ANNONCE DEFILANTE */
+        .ticker {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f9c74f;
+            color: #003d82;
+            margin-top: -8px;
+            padding: 0 14px;
+            height: 42px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .ticker-pause {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border: 2px solid #003d82;
+            border-radius: 50%;
+            background: transparent;
+            color: #003d82;
+            font-size: 9px;
+            letter-spacing: -1px;
+            cursor: pointer;
+        }
+
+        .ticker-pause[aria-pressed="true"] {
+            background: #003d82;
+            color: #f9c74f;
+        }
+
+        .ticker-view {
+            flex: 1;
+            overflow: hidden;
+            mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker-scroll 45s linear infinite;
+        }
+
+        .ticker-view:hover .ticker-track,
+        .ticker.paused .ticker-track {
+            animation-play-state: paused;
+        }
+
+        .ticker-items {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .ticker-items span {
+            padding: 0 14px;
+        }
+
+        .ticker-sep {
+            opacity: 0.6;
+        }
+
+        .ticker-cta {
+            flex-shrink: 0;
+            background: #003d82;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 16px;
+            border-radius: 18px;
+            transition: background 0.3s;
+        }
+
+        .ticker-cta:hover {
+            background: #1a5fa0;
+        }
+
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            .ticker { height: 38px; font-size: 14px; gap: 8px; padding: 0 10px; }
+            .ticker-cta { font-size: 13px; padding: 5px 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .ticker-cta { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ticker-pause { display: none; }
+            .ticker { height: auto; min-height: 42px; padding-top: 6px; padding-bottom: 6px; }
+            .ticker-view { mask-image: none; -webkit-mask-image: none; }
+            .ticker-track { animation: none !important; width: auto; }
+            .ticker-items { flex-wrap: wrap; justify-content: center; white-space: normal; }
+            .ticker-items + .ticker-items { display: none; }
+            .ticker-sep { display: none; }
+        }
+
+        .ticker + .navbar {
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links a.nav-cta,
+            .nav-links a.nav-cta:hover,
+            .nav-links a.nav-cta.active {
+                border: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                border-radius: 0;
+                background: #f9c74f;
+                color: #003d82;
+                font-weight: 700;
+                padding: 14px 20px;
+            }
         }
