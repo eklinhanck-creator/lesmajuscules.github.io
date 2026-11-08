@@ -292,7 +292,7 @@
         }
         
         .actualite-date {
-            color: #999;
+            color: #595959;
             font-size: 11px;
             font-weight: 700;
             margin-bottom: 12px;
@@ -300,7 +300,7 @@
             letter-spacing: 1px;
         }
         
-        .actualite-card h4 {
+        .actualite-card h3 {
             color: #003d82;
             font-size: 17px;
             margin-bottom: 12px;
@@ -468,7 +468,7 @@
             margin-bottom: 15px;
         }
         
-        .help-card h4 {
+        .help-card h3 {
             color: #003d82;
             margin-bottom: 10px;
             font-size: 18px;
@@ -593,8 +593,9 @@
             flex-shrink: 0;
         }
         
-        .contact-item h4 {
+        .contact-item h3 {
             color: #003d82;
+            font-size: 1rem;
             margin-bottom: 5px;
         }
         
@@ -967,7 +968,7 @@
         .origines-note {
             margin-top: 25px;
             text-align: center;
-            color: #777;
+            color: #595959;
             font-size: 13px;
             font-style: italic;
         }
@@ -1044,7 +1045,7 @@
 
         .cal-weekday {
             font-size: 13px;
-            color: #777;
+            color: #595959;
         }
 
         .cal-arrow {
@@ -1096,7 +1097,7 @@
         .cal-note {
             margin-top: 18px;
             font-size: 13px;
-            color: #777;
+            color: #595959;
             font-style: italic;
         }
 
