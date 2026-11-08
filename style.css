@@ -1239,3 +1239,21 @@
                 padding: 14px 20px;
             }
         }
+
+        .footer-privacy {
+            max-width: 720px;
+            margin: 10px auto 0 !important;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Bande retiree apres la date de fin : l'en-tete retrouve sa hauteur d'origine */
+        html.no-ticker {
+            --header-h: 76px;
+        }
+
+        @media (max-width: 768px) {
+            html.no-ticker {
+                --header-h: 68px;
+            }
+        }
