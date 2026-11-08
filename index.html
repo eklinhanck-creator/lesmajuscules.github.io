@@ -42,13 +42,13 @@
 }
     </script>
     <title>Les M@JUSCULES - Inclusion Numérique au Togo</title>
-    <link rel="stylesheet" href="style.css?v=20261111">
+    <link rel="stylesheet" href="style.css?v=20261112">
 </head>
 <body>
     <a href="#main" class="skip-link">Aller au contenu</a>
     <!-- HEADER -->
     <header>
-        <div class="ticker" role="region" aria-label="Annonce : contrôle de vie">
+        <div class="ticker" data-end="2026-12-15" role="region" aria-label="Annonce : contrôle de vie">
             <button type="button" class="ticker-pause" id="ticker-pause" aria-pressed="false" aria-label="Mettre en pause le défilement">&#10074;&#10074;</button>
             <div class="ticker-view">
                 <div class="ticker-track">
@@ -58,6 +58,20 @@
             </div>
             <a class="ticker-cta" href="https://wa.me/22898561901?text=Bonjour%2C%20je%20souhaite%20%C3%AAtre%20accompagn%C3%A9%20pour%20mon%20contr%C3%B4le%20de%20vie." target="_blank" rel="noopener">Prendre rendez-vous</a>
         </div>
+        <script>
+            // Retire la bande d'annonce le lendemain de la date de fin (data-end)
+            (function () {
+                var t = document.querySelector('.ticker[data-end]');
+                if (!t) return;
+                var p = t.dataset.end.split('-').map(Number);
+                var end = new Date(p[0], p[1] - 1, p[2]);
+                var n = new Date();
+                if (new Date(n.getFullYear(), n.getMonth(), n.getDate()) > end) {
+                    t.remove();
+                    document.documentElement.classList.add('no-ticker');
+                }
+            })();
+        </script>
         <nav class="navbar">
             <a href="#top" class="logo">
                 <img src="logo.png" alt="" width="60" height="60" decoding="async">
@@ -393,9 +407,10 @@
         <p>&copy; <span id="year">2025</span> Les M@JUSCULES - Association d'Inclusion Numérique au Togo</p>
         <p style="margin-top: 10px; opacity: 0.8;">Un monde numérique inclusif pour tous !</p>
         <p class="footer-legal">Numéro d’enregistrement du courrier de déclaration officielle au Ministère de l’Administration Territoriale, de la Décentralisation et du Développement des Territoires au N° 0558 du 07 août 2024</p>
+        <p class="footer-privacy">Ce site mesure sa fréquentation avec Cloudflare Web Analytics, sans cookies et sans suivi individuel des visiteurs.</p>
     </footer>
     
-    <script src="script.js?v=20261111" defer></script>
+    <script src="script.js?v=20261112" defer></script>
     <!-- Cloudflare Web Analytics -->
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c1b12ed5b393461980485d9a2f2d5ea0"}'></script>
     <!-- End Cloudflare Web Analytics -->
