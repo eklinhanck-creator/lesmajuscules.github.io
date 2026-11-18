@@ -122,7 +122,7 @@ if (cal) {
     ].join('\r\n');
     const link = document.getElementById('cal-ics');
     link.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
-    link.download = 'controle-de-vie-2026.ics';
+    link.download = 'controle-de-vie-2026-2027.ics';
 }
 
 // Bande d'annonce : pause du defilement

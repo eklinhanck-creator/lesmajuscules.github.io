@@ -1257,3 +1257,16 @@
                 --header-h: 68px;
             }
         }
+
+        .cal-where {
+            max-width: 520px;
+            margin: 0 auto 22px;
+            padding: 10px 14px;
+            background: #fff;
+            border-left: 4px solid #f9c74f;
+            border-radius: 4px;
+            color: #003d82;
+            font-size: 15px;
+            line-height: 1.5;
+            text-align: left;
+        }
